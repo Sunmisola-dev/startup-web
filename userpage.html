@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+     <!-- Favicon -->
+     <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   <style>
+        body{
+            /* background: linear-gradient(to right, rgb(194,194,196), rgb(194,194,196), rgb(217,144,195)) */
+            background: linear-gradient(to right, rgb(25, 17, 70), rgb(35,14, 84), rgb(35,14, 84), rgb(25, 17, 70));
+            color: whitesmoke;
+        }
+        .header{
+            background-color: rgba(60,60,60, 0.4);
+        }
+        .eduQuiz{
+            background-image: linear-gradient(to right, rgb(65,3,94), rgb(78,56,212));
+            text-transform: uppercase;
+            font-family: verdana;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 1px black,
+                      1px 2px 1px black,
+                      1px 3px 1px black,
+                      1px 4px 1px black,
+                      1px 5px 1px black,
+                      1px 6px 1px black,
+                      1px 7px 1px black,
+                      1px 8px 1px black,
+                      1px 9px 1px black,
+                      1px 10px 1px black,
+          1px 18px 6px rgba(16, 16, 16, 0.4),
+          1px 22px 10px rgba(16, 16, 16, 0.2),
+          1px 25px 35px rgba(16, 16, 16, 0.2),
+          1px 30px 60px rgba(16, 16, 16, 0.4);
+        }
+        .game{
+            box-shadow: 1px 1px 1px #919191;
+            font-size: 6em;
+            text-transform: uppercase;
+            font-family: verdana;
+            font-weight: 900;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 1px #919191,
+                      1px 2px 1px #919191,
+                      1px 3px 1px #919191,
+                      1px 4px 1px #919191,
+                      1px 5px 1px #919191,
+                      1px 6px 1px #919191,
+                      1px 7px 1px #919191,
+                      1px 8px 1px #919191,
+                      1px 9px 1px #919191,
+                      1px 10px 1px #919191,
+          1px 18px 6px rgba(16, 16, 16, 0.4),
+          1px 22px 10px rgba(16, 16, 16, 0.2),
+          1px 25px 35px rgba(16, 16, 16, 0.2),
+          1px 30px 60px rgba(16, 16, 16, 0.4);
+        }
+        .ready{
+            box-shadow: 4px 4px 4px 4px rgba(60,60,60, 0.4);
+            width: 25%;
+        }
+        .btn{
+            background: linear-gradient(rgba(70, 63, 80), rgb(15, 13, 58), rgba(70, 63, 80));
+            border-radius: 30px;
+            box-shadow: 3px 3px 3px 3px rgba(26, 30, 50, 0.3);
+            color: #f3f6f9;
+        }
+        .cateValue{
+            font-size: 80px;
+        }
+        option{
+            background-color: black;
+            color: white;
+        }
+        .fun{
+            font-family: 'Creepster', cursive;
+            font-family: 'Libre Baskerville', serif;
+            font-family: 'Patrick Hand', cursive;
+        }
+        .footer{
+            text-align: center;
+        }
+        .card{
+            box-shadow: 2px 2px 2px 2px rgba(26, 30, 50);
+        }
+        .card-footer{
+            text-align: center;
+        }
+        .initials{
+            border-radius: 20%;
+            background-color: rgba(194,194,196, 0.4);
+            padding: 10px;
+        }
+        .backgroundOverlay{
+            background-color: transparent;
+            min-height: 100vh;
+        }
+
+        @media (min-width: 360px) and (max-width: 640px){
+            .game{
+              font-size: 50px;
+           }
+           .ready{
+            font-size: 11px;
+            margin-top: 0px;
+           }
+           .fun{
+            font-size: 15px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl p-0" id="test">
+            <!-- Spinner Start -->
+        <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+               <span class="sr-only">Loading...</span>
+            </div>
+        </div> -->
+        <!-- Spinner End -->
+
+        <div class="backgroundOverlay">
+            <div class="header navbar navbar-expand-lg navbar-light">
+                <div class="ml-5 eduQuiz pt-2 navbar-brand">
+                    <h3>#EDUQUIZ</h3>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- <div class="pt-3"><h4 class="text-light">WELCOME ON BOARD JACKY</h4></div> -->
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                        <li class="nav-item active">
+                          <a class="nav-link text-center" href="#"> <span class="sr-only">(current)</span></a>
+                        </li>
+                      </ul>
+                    <div class="dropdown">
+                        <span class="dropdown-toggle mr-4 initials nav-link mt-2 text-light"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                            JK
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">view profile</a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+
+            <center>
+                <section class="d-flex align-items-center mt-5">
+                    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+                        <h1 class="game text-light" id="pop-up">Simple Quiz Game</h1>
+                        <h3 class="mt-5 ready text-light">Ready For Quiz?</h3>
+                    </div>
+                </section>
+            </center>
+            <div class="container-fluid mt-3 info">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                        <div class="input-group mb-2  cateselect">
+                            <select class="custom-select cateBtn btn-lg tooltip-test" title="Click to select" id="category" onchange="generateCategory()"></select>
+                            <div class="input-group-append">
+                              <button type="button" class="input-group-text cateBtn btn text-light btn-md tooltip-test" for="category" id="" title="Click to play">Play by Category</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="container mt-3">
+                    <div id="cards">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 text-center footer">
+                 <h3 class="fun text-light"> <i class="fas fa-heart"></i> Learn And Have Fun With EduQuiz  <i class="fas fa-heart"></i></h3>
+            </div>
+        </div>
+    </div>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="./user.js"></script>
+</body>
+</html>

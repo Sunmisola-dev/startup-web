@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+     <!-- Favicon -->
+     <link href="img/favicon.ico" rel="icon">
+
+     <!-- Google Web Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+     
+     <!-- Icon Font Stylesheet -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+     
+     <!-- Customized Bootstrap Stylesheet -->
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
+     <!-- Template Stylesheet -->
+     <link href="css/style.css" rel="stylesheet">
+     <!-- <style>
+         @media (min-width: 360) and (max-width: 640) {
+           
+         }
+     </style> -->
+</head>
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h4 class="text-primary"><i class="fa fa-hashtag me-2"></i>EduQuiz Module</h4>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Sunmisola O. O.</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="dashboard.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="category.html" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Category</a>
+                    <a href="manageQuiz.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Manage Quiz</a>
+                    <a href="activateQuiz.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Activate Quiz</a>
+                    <a href="manageTeacher.html" class="nav-item nav-link"><i class="fas fa-chalkboard-teacher me-2"></i>Manage Teachers</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <!-- <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form> -->
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notification</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Sunmisola O. O.</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+            
+             <!-- Page content-->
+            <div class="container-fluid pt-4 px-4">
+                <div class="pl-3">
+                    <a class="text-dark" href="index.html">Dashboard</a>><a class="text-dark" href="category.html">category</a>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Category</p>
+                                <h6 class="mb-0" id="cateCount">0</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Active  Status</p>
+                                <h6 class="mb-0" id="liveCount">0</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Inactive Status</p>
+                                <h6 class="mb-0" id="notLive">0</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div  class="container-fluid pt-4">
+                        <div class="bg-light text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary mb-2 setCate" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="fas fa-plus-circle"></i>Set Category
+                                    </button>
+                                      <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                               <div class="modal-header">
+                                                   <h5 class="modal-title" id="exampleModalLabel">Set Category</h5>
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                   </button>
+                                               </div>
+                                               <div class="modal-body p-5">
+                                                   <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                                                        </div>
+                                                        <input class="form-control" type="text" id="inputGroupSelect01">
+                                                    </div>                                                                                                                                                          
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                           <label class="input-group-text" for="inputGroupSelect03">Status</label>
+                                                        </div>
+                                                        <select class="custom-select form-control" id="inputGroupSelect03">
+                                                        </select>
+                                                   </div>                                                                              
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="button" class="btn btn-primary"  data-dismiss="modal" onclick="saveCategory()">Save changes</button>
+                                                </div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div id="del">
+                                </div>
+                               
+                            </div>
+                            <div  class="table-responsive">
+                                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                                    <thead>
+                                        <tr class="text-dark">
+                                            <th scope="col"><input class="form-check-input bindValue" onclick="checkAll(this)" type="checkbox"></th>
+                                            <th scope="col">S/N</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="category">
+                    
+                                    </tbody>
+                                      <!-- edit modal-->
+                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                             <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                         <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" id="modalBody">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <label class="input-group-text" for="editCategory">Category</label>
+                                                        </div>
+                                                        <input class="form-control" type="text" id="editCategory" onchange="cateSelect(event)">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                         <div class="input-group-prepend">
+                                                             <label class="input-group-text" for="status">Status</label>
+                                                         </div>
+                                                         <select class="custom-select" id="live">
+                                                            <option value="Active">Active</option> 
+                                                            <option value="Not Active">Not Active</option> 
+                                                         </select>
+                                                    </div> 
+         
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveNewCategory()">Save changes</button>
+                                                </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                </table>
+                            </div>
+                        </div>
+                       
+                    </div>
+            </div>
+
+             <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        </br>
+                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+          <!-- Back to Top -->
+          <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script>
+        const editCategory = document.querySelector('#editCategory');
+        const report = document.querySelector('#report');
+        const live = document.querySelector('#live');
+        const  sel1 = document.querySelector('#inputGroupSelect01');
+        const  sel3 = document.querySelector('#inputGroupSelect03');
+        let del = document.querySelector('#del');
+        let catesel3 = [
+            {status: "Active"},
+            {status: "Not Active"},
+        ]
+        // console.log(catesel2)
+        for (let i = 0; i < catesel3.length; i++) {   
+            sel3.innerHTML +=`<option value="${catesel3[i].status}">${catesel3[i].status}</option>`;               
+        }; 
+        function fetchData(){
+            category.innerHTML = "";
+            let categoryList = JSON.parse(localStorage.getItem("categories")) || null;
+
+            if (categoryList !== null) {
+                let liveCounter = 1;
+                let notLiveCounter = 1;
+                categoryList.forEach((element, a) => {  
+                    del.innerHTML = `
+                        <button type="button" class="btn btn-primary mb-2" onclick="deleteCatego(${a})"><i class="fas fa-minus-circle"></i>Delete Category</button>
+                    `;
+  
+                   category.innerHTML += `
+                       <tr>
+                           <td><input class="form-check-input" type="checkbox"></td>  
+                           <td>${a+1}</td>
+                           <td>${element.catesel1}</td>
+                           <td>${element.catesel3}</td>
+                           <td class="align-items-center ms-auto">
+                                
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-th-large"></i></a>
+                                    <div class="dropdown-menu-left bg-transparent border-0">
+                                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#editModal" onclick="update(${element.id})">Edit</a>
+                                        <a href="#" class="dropdown-item" onclick="deleteCategory(${a})">Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                       </tr>
+                    `; 
+                    if(element.catesel3 == "Active"){
+                        document.getElementById('liveCount').innerHTML = liveCounter++
+                    }
+                    if(element.catesel3 == "Not Active") {
+                        document.getElementById('notLive').innerHTML = notLiveCounter++
+                    }
+               });  
+               document.getElementById('cateCount').innerHTML = categoryList.length
+
+            } 
+        };
+       fetchData();   
+       
+       
+    function checkAll(ele){
+        var checkboxes = document.getElementsByTagName('input');
+        if(ele.checked){
+            for(var i = 0; i < checkboxes.length; i++){
+                if(checkboxes[i].type == 'checkbox'){
+                    checkboxes[i].checked = true;
+                }
+            }
+        }else { 
+            for(var i = 0; i < checkboxes.length; i++){
+                if(checkboxes[i].type == 'checkbox'){
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    };
+
+    function deleteCatego(inde) {
+        // var checkboxes = document.getElementsByTagName('input');
+        // for (let i = 0; i < checkboxes.length; i++) {
+        //     if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == false ) {
+        //         return alert('no')
+        //     }
+        // } 
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover category",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                let holder = JSON.parse(localStorage.getItem('categories'));
+                // checkboxe = document.getElementsByClassName('checkbox');
+                if (holder) {
+                    holder.splice(inde);
+                }
+                fetchData();
+                swal("category has been deleted!", {
+                    icon: "success",
+                });
+            }
+            else{
+                fetchData();
+                swal("category still in cart", {
+                icon: "success",
+                });
+            }
+        });
+    };
+
+
+
+
+       function saveCategory(){
+           let  categori = JSON.parse(localStorage.getItem("categories")) || null;
+           let status = false;
+           let data = { 
+               id: Math.floor(Math.random() * 1000000),
+               catesel1 : sel1.value, 
+               catesel3 : sel3.value,
+           };
+
+           let arr = [];
+            if (categori == null) {
+               arr.push(data)
+               localStorage.setItem('categories', JSON.stringify(arr))
+            }else {
+                for (let i = 0; i < categori.length; i++) {
+                    if (data.catesel1 == categori[i].catesel1) {
+                        status = true;
+                    }
+                }                
+            }
+            if (status) {
+                swal({
+                    title: "Item already selected"
+                }); 
+            } else if (sel1.value == ""){
+                alert('category is empty')
+            }else{
+                categori.push(data) 
+                localStorage.setItem('categories', JSON.stringify(categori)); 
+            }
+            fetchData(); 
+        };
+    
+
+            // categoryEditbtn
+        function update(ind){
+           save = ind;
+           let obj = {};
+           let holder1 = JSON.parse(localStorage.getItem("categories"))
+           for (let i = 0; i < holder1.length; i++) {
+               if (holder1[i].id == ind) {
+                 obj = holder1[i]; 
+                }      
+            }
+            editCategory.value = obj.catesel1;
+            live.value = obj.catesel3;
+           fetchData();
+        };    
+              
+             
+       function cateSelect(e){
+           let editCategory1="";
+
+           for (let i = 0; i < catesel1.length; i++) {
+               if (e.target.value == catesel1[i].sel1) {
+                   editCategory1 = catesel1[i].sel3;
+                }            
+            }
+            editCategory.value = editCategory1;
+        };
+
+        // categoryModalEditbtn
+        function saveNewCategory() {
+         let holder1 = JSON.parse(localStorage.getItem('categories'));
+        if (editCategory.value == "" || live.value == "") {
+              alert('cannot update empty category')
+        } else {
+            for (let i = 0; i < holder1.length; i++) {
+                if (holder1[i].id == save) {
+                    holder1[i].catesel1 = editCategory.value;
+                    holder1[i].catesel3 = live.value;
+                } 
+                       
+            }
+            editCategory.value = "";
+            live.value = "";
+        }
+        localStorage.setItem("categories", JSON.stringify(holder1))
+          fetchData();
+
+    };
+
+        function deleteCategory(ind) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover category",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+           .then((willDelete) => {
+                if (willDelete) {
+                    var holder2 = JSON.parse(localStorage.getItem('categories'));
+                    if (holder2) {
+                       holder2.splice(ind, 1); 
+                       localStorage.setItem('categories', JSON.stringify(holder2))
+                    }
+                    fetchData();
+                    swal("category has been deleted!", {
+                        icon: "success",
+                    });
+                  }else {
+                   fetchData();
+                   swal("category still in cart", {
+                       icon: "success",
+                    }); 
+                }  
+           });       
+        };
+    </script>  
+     <!-- jQuery library -->
+     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+     <!-- Popper JS -->
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+     <!-- Latest compiled JavaScript -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>  
+     <!-- Bootstrap core JS-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
+     <!-- JavaScript Libraries -->
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>  
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+     <!-- Template Javascript -->
+     <script src="js/main.js"></script>
+</body>
+</html>
