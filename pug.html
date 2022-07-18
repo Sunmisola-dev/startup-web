@@ -1,0 +1,236 @@
+ <div class="info container">
+            <div class="row">
+                <div class="col-md-6 col-sm-3">
+                    <div class="input-group mb-3 cateselect">
+                        <div class="input-group-prepend">
+                           <label class="input-group-text btn text-light" for="category">Play by Category</label>
+                        </div>
+                        <select class="custom-select btn" id="category" onchange="displayStat()">
+                           
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <button class="btn btn-lg text-light"><i class="fas fa-calendar-alt"></i> <span>Daily Challenge</span></button>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                       <!-- button trigger modal -->
+                        <button class="btn btn-lg text-light" type="button" data-toggle="modal" data-target="#statModal"><i class="fas fa-user-clock"></i> <span>Statistics</span></button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="statModal" tabindex="-1" aria-labelledby="statModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title text-light" id="statModalLabel">Statistics</h3>
+                                        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="stat">
+                                            <h4 class="text-light d-flex justify-content-between">Total answers: <span>0</span></h4>
+                                            <hr>  
+                                            <h4 class="text-light d-flex justify-content-between">Correct answers: <span>0</span></h4> 
+                                            <hr> 
+                                            <h4 class="text-light d-flex justify-content-between">Wrong answers: <span>0</span></h4>
+                                            <hr>
+                                            <h4 class="text-light d-flex justify-content-between">Games played: <span>0</span></h4>  
+                                            <hr>
+                                            <h4 class="text-light d-flex justify-content-between">Games won: <span>0</span></h4>  
+                                            <hr>
+                                            <h4 class="text-light d-flex justify-content-between">Earned coins: <span>0</span></h4> 
+                                            <hr> 
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <!-- modal button trigger -->
+                        <button class="btn btn-lg text-light" type="button" data-toggle="modal" data-target="#leaderboardModal"><i class="fas fa-chess"></i> <span>LeaderBoards</span></button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="leaderboardModal" tabindex="-1" aria-labelledby="leaderboardModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h3 class="modal-title text-light" id="leaderboardModalLabel">Leaderboard</h3>
+                                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="Leaderboard">
+                                            
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+             
+            <div class="mb-3 mt-3 text-center">
+                <button class="btn btn-lg text-light"><i class="fas fa-comment-slash"></i>  <span>Quit</span></button>
+            </div>
+        </div>
+
+
+
+
+
+
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <button class="btn btn-lg text-light btn1"  onclick="displayChallenge()"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp; <span>Daily Challenge</span></button>
+                </div> 
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <!-- button trigger modal -->
+                    <button class="btn btn-lg text-light tooltip-test btn1"  title="View Current Status" type="button" data-toggle="modal" data-target="#statModal"><i class="fas fa-user-clock"></i>&nbsp;&nbsp;&nbsp;&nbsp; <span>Statistics</span></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="statModal" tabindex="-1" aria-labelledby="statModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-sm">
+                            <div class="modal-content statistics-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title text-light"  id="statModalLabel">Statistics</h3>
+                                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="stat">
+                                        <h4 class="text-light d-flex justify-content-between">Total answers: <span class="totalAnswer">0</span></h4>
+                                        <hr>  
+                                        <h4 class="text-light d-flex justify-content-between">Correct answers: <span class="correctAnswer">0</span></h4> 
+                                        <hr> 
+                                        <h4 class="text-light d-flex justify-content-between">Wrong answers: <span class="wrongAnswer">0</span></h4>
+                                        <hr>
+                                        <h4 class="text-light d-flex justify-content-between">Quiz played: <span class="gamesPlayed">0</span></h4>  
+                                        <hr>
+                                        <h4 class="text-light d-flex justify-content-between">Quiz won: <span class="gamesWon">0</span></h4>  
+                                        <hr>
+                                        <h4 class="text-light d-flex justify-content-between">Earned coins: <span class="earnedCoins">0</span></h4> 
+                                        <hr> 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary closebtn" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div>
+                    <!-- modal button trigger -->
+                    <button class="btn btn-lg text-light btn1" type="button" data-toggle="modal" data-target="#leaderboardModal"><i class="fas fa-chess"></i>&nbsp;&nbsp;&nbsp;&nbsp; <span>LeaderBoards</span></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="leaderboardModal" tabindex="-1" aria-labelledby="leaderboardModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h3 class="modal-title text-light" id="leaderboardModalLabel">Leaderboard</h3>
+                                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="Leaderboard">
+                                        
+                                    </div>
+                                
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-md-6">
+                <div class="">
+                    <button class="btn btn-lg text-light btn1"><i class="fas fa-comment-slash"></i>&nbsp;&nbsp;&nbsp;&nbsp;  <span>Quit</span></button>
+                </div>  
+            </div>
+        </div>
+
+        rgba(8, 35, 102)
+
+        <div>
+            rgb(147,72,233)
+            rgb(78,56,212)
+
+            rgb(130,79,232)
+        </div>
+       
+<div data-aos="fade-up" data-aos-delay="500"></div>
+
+
+
+let initials = document.querySelector(".initials");
+
+var user = JSON.parse(localStorage.getItem('userLogin'));
+if (user) {
+    swal("Welcome!" + " " + user.inputName, "Choose from the list of quiz category to countinue!", "success");
+
+    initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
+}
+
+
+<script>
+    let Email = document.getElementById('floatingInput');
+    let PassW = document.getElementById('floatingPassword');
+    let check = document.getElementById('exampleCheck1');
+    let message = document.getElementById('message');
+
+    function loginUser() {
+        let data = {
+            Email: floatingInput.value,
+            PassW: floatingPassword.value,
+            check: exampleCheck1.checked
+        };
+        // console.log('data')
+        let arr = {};
+        loginStatus = false;
+        var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        userInfo.some(el => {
+            if (el.email == data.Email && el.Password == data.PassW && el.exampleCheck1 == data.check) {
+            localStorage.setItem("userLogin", JSON.stringify(el))
+            loginStatus = true;
+            arr = el;
+            }
+        });
+        if (loginStatus) {
+            message.innerHTML = `login successful<i class="fas fa-check-circle check"></i>`;
+            window.open('userpage.html', '_blank')
+        }else{
+            message.innerHTML = `<small class="match">Invalid credentials<i class="fas fa-exclamation warning"></i></small>`;
+            setTimeout(() => {
+            window.open("signin.html", '_blank');
+            }, 4000); 
+        };
+    };
+</script>

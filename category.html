@@ -234,8 +234,8 @@
                                         </div>
                                     </div>
                                 </div> 
-                                <div id="del">
-                                </div>
+                                <!-- <div id="del">
+                                </div> -->
                                
                             </div>
                             <div  class="table-responsive">
@@ -339,9 +339,9 @@
                 let liveCounter = 1;
                 let notLiveCounter = 1;
                 categoryList.forEach((element, a) => {  
-                    del.innerHTML = `
-                        <button type="button" class="btn btn-primary mb-2" onclick="deleteCatego(${a})"><i class="fas fa-minus-circle"></i>Delete Category</button>
-                    `;
+                    // del.innerHTML = `
+                    //     <button type="button" class="btn btn-primary mb-2" onclick="deleteCatego(${a})"><i class="fas fa-minus-circle"></i>Delete Category</button>
+                    // `;
   
                    category.innerHTML += `
                        <tr>
@@ -349,15 +349,14 @@
                            <td>${a+1}</td>
                            <td>${element.catesel1}</td>
                            <td>${element.catesel3}</td>
-                           <td class="align-items-center ms-auto">
-                                
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-th-large"></i></a>
-                                    <div class="dropdown-menu-left bg-transparent border-0">
-                                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#editModal" onclick="update(${element.id})">Edit</a>
-                                        <a href="#" class="dropdown-item" onclick="deleteCategory(${a})">Delete</a>
+                           <td class="">
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-th-large"></i></a>
+                                    <div class="dropdown-menu border-0">
+                                        <span class="dropdown-item" data-toggle="modal" data-target="#editModal" onclick="update(${element.id})">Edit</span>
+                                        <span class="dropdown-item" onclick="deleteCategory(${a})">Delete</span>
                                     </div>
-                                </div>
+                                </div> 
                             </td>
                        </tr>
                     `; 
@@ -392,40 +391,40 @@
         }
     };
 
-    function deleteCatego(inde) {
-        // var checkboxes = document.getElementsByTagName('input');
-        // for (let i = 0; i < checkboxes.length; i++) {
-        //     if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == false ) {
-        //         return alert('no')
-        //     }
-        // } 
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover category",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then((willDelete) => {
-            if (willDelete) {
-                let holder = JSON.parse(localStorage.getItem('categories'));
-                // checkboxe = document.getElementsByClassName('checkbox');
-                if (holder) {
-                    holder.splice(inde);
-                }
-                fetchData();
-                swal("category has been deleted!", {
-                    icon: "success",
-                });
-            }
-            else{
-                fetchData();
-                swal("category still in cart", {
-                icon: "success",
-                });
-            }
-        });
-    };
+    // function deleteCatego(inde) {
+    //     // var checkboxes = document.getElementsByTagName('input');
+    //     // for (let i = 0; i < checkboxes.length; i++) {
+    //     //     if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == false ) {
+    //     //         return alert('no')
+    //     //     }
+    //     // } 
+    //     swal({
+    //         title: "Are you sure?",
+    //         text: "Once deleted, you will not be able to recover category",
+    //         icon: "warning",
+    //         buttons: true,
+    //         dangerMode: true,
+    //     })
+    //     .then((willDelete) => {
+    //         if (willDelete) {
+    //             let holder = JSON.parse(localStorage.getItem('categories'));
+    //             // checkboxe = document.getElementsByClassName('checkbox');
+    //             if (holder) {
+    //                 holder.splice(inde);
+    //             }
+    //             fetchData();
+    //             swal("category has been deleted!", {
+    //                 icon: "success",
+    //             });
+    //         }
+    //         else{
+    //             fetchData();
+    //             swal("category still in cart", {
+    //             icon: "success",
+    //             });
+    //         }
+    //     });
+    // };
 
 
 

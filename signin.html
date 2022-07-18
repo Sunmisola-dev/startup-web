@@ -69,6 +69,7 @@
                             <a href="">Forgot Password</a>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="loginUser()">Sign In</button>
+                        <p id="message"></p>
                         <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
                     </div>
                 </div>
@@ -100,23 +101,24 @@
             let data = {
                 Email: floatingInput.value,
                 PassW: floatingPassword.value,
+                check: exampleCheck1.checked
             };
             // console.log('data')
             let arr = {};
             loginStatus = false;
             var userInfo = JSON.parse(localStorage.getItem('userInfo'));
             userInfo.some(el => {
-                if (el.email == data.Email && el.Password == data.PassW) {
-                localStorage.setItem("userLogin", JSON.stringify(el))
-                loginStatus = true;
-                arr = el;
+                if (el.email == data.Email && el.Password == data.PassW && el.exampleCheck1 == data.check) {
+                    localStorage.setItem("userLogin", JSON.stringify(el))
+                    loginStatus = true;
+                    arr = el;
                 }
             });
             if (loginStatus) {
                 message.innerHTML = `login successful<i class="fas fa-check-circle check"></i>`;
                 window.open('userpage.html', '_blank')
             }else{
-                message.innerHTML = `<small class="match">Invalid credentials<i class="fas fa-exclamation warning"></i></small>`;
+                message.innerHTML = `<small class="match text-danger">Invalid credentials<i class="fas fa-exclamation warning"></i><i class="fas fa-exclamation warning"></i></small>`;
                 setTimeout(() => {
                 window.open("signin.html", '_blank');
                 }, 4000); 
