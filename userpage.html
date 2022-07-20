@@ -20,7 +20,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
    <style>
         body{
             /* background: linear-gradient(to right, rgb(194,194,196), rgb(194,194,196), rgb(217,144,195)) */
@@ -72,10 +72,29 @@
           1px 25px 35px rgba(16, 16, 16, 0.2),
           1px 30px 60px rgba(16, 16, 16, 0.4);
         }
+    
         .ready{
             box-shadow: 4px 4px 4px 4px rgba(60,60,60, 0.4);
-            width: 25%;
+            width: 30%;
+            font-family:  verdana;
+            color: transparent;
+            animation: change 2s linear infinite;
         }
+
+        @keyframes change {
+            0% {
+                background: linear-gradient(
+                        #008000, #00FF00);
+                -webkit-background-clip: text;
+            }
+ 
+            100% {
+                background: linear-gradient(
+                        #3CE7D7, #000FFF);
+                -webkit-background-clip: text;
+            }
+        }
+
         .btn{
             background: linear-gradient(rgba(70, 63, 80), rgb(15, 13, 58), rgba(70, 63, 80));
             border-radius: 30px;
@@ -113,53 +132,82 @@
             min-height: 100vh;
         }
 
-        @media (min-width: 360px) and (max-width: 640px){
-            .game{
-              font-size: 50px;
-           }
-           .ready{
-            font-size: 11px;
-            margin-top: 0px;
-           }
-           .fun{
-            font-size: 15px;
+        hr{
+            width: 30%;
+            background-color: aqua;
+            /* height: 300px; */
         }
+        @media (min-width: 360px) and (max-width: 640px){
+            .eduQuiz{
+                font-size: 45px;
+            }
+
+            .game{
+              font-size: 40px;
+            }
+           .ready{
+                font-size: 20px;
+                margin-top: 0px;
+                box-shadow: none;
+                width: 90%;
+           }
+
+           .fun{
+              font-size: 15px;
+           }
+
+           .initials{
+                font-size: 27px;
+           }
+
+           .cateValue{
+              font-size: 35px;
+            }
+            .cardHeader{
+                font-size: 17px;
+            }
+
+            body{
+                margin-bottom: 0px;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1024px){
+            .game{
+              font-size: 80px;
+            }
+           .ready{
+                font-size: 30px;
+                margin-top: 0px;
+                box-shadow: none;
+                width: 90%;
+           }
         }
     </style>
 </head>
 <body>
     <div class="container-xxl p-0" id="test">
             <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                <span class="sr-only">Loading...</span>
             </div>
-        </div>
+        </div>  -->
         <!-- Spinner End -->
 
         <div class="backgroundOverlay">
-            <div class="header navbar navbar-expand-lg navbar-light">
-                <div class="ml-5 eduQuiz pt-2 navbar-brand">
+            <div class="header d-flex justify-content-between">
+
+                <div class="ml-5 eduQuiz pt-2">
                     <h3>#EDUQUIZ</h3>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- <div class="pt-3"><h4 class="text-light">WELCOME ON BOARD JACKY</h4></div> -->
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
-                        <li class="nav-item active">
-                          <a class="nav-link text-center" href="#"> <span class="sr-only">(current)</span></a>
-                        </li>
-                      </ul>
-                    <div class="dropdown">
-                        <span class="dropdown-toggle mr-4 initials nav-link mt-2 text-light"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                            JK
-                        </span>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="viewProfile()">view profile</a>
-                            <a class="dropdown-item" href="signin.html">Log Out</a>
-                        </div>
+                <div class="dropdown">
+                    <span class="dropdown-toggle mr-4 initials nav-link mt-2 text-light"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" onclick="viewProfile()">view profile</a>
+                        <a class="dropdown-item" href="signin.html">Log Out</a>
                     </div>
                 </div>
                
@@ -169,14 +217,16 @@
                 <section class="d-flex align-items-center mt-5">
                     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
                         <h1 class="game text-light" id="pop-up">Simple Quiz Game</h1>
-                        <h4 class="mt-5 ready text-light">How strong is my IQ ?</h4>
+                        <div><h4 class="mt-5 ready">How strong is my IQ ?</h4></div>
+                        
+                        <hr class="d-block d-lg-none">
                     </div>
                 </section>
             </center>
             <div class="container-fluid mt-3 info">
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 col-md-5 text-center">
                         <div class="input-group mb-2  cateselect">
                             <select class="custom-select cateBtn btn-lg tooltip-test" title="Click to select" id="category" onchange="generateCategory()"></select>
                             <div class="input-group-append">
@@ -184,7 +234,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-sm-4"></div>
                 </div>
                 <div class="container mt-3">
                     <div id="cards">
@@ -206,6 +256,6 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
      <script src="./user.js"></script>
-     <script src="js/main.js"></script>
+     <!-- <script src="js/main.js"></script> -->
 </body>
 </html>

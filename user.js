@@ -8,13 +8,11 @@ let initials = document.querySelector(".initials");
 var user = JSON.parse(localStorage.getItem('userLogin'));
 if (user) {
     swal( "Welcome" + " " + user.inputName, "Choose from the list of quiz category to countinue!", "success");
-
     initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
 }
 
 function viewProfile() {
-    window.open('userprofile.html', '_blank')
-    // initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
+    window.open('userprofile.html')
 }
     let categoryList = JSON.parse(localStorage.getItem("categories")) || null;
     quizCate.innerHTML = ""
@@ -23,7 +21,7 @@ function viewProfile() {
         categoryList = categoryList.filter(el => el.catesel3 == "Active");
         for (let i = 0; i < categoryList.length; i++) {
             quizCate.innerHTML +=`
-               <option value='${categoryList[i].catesel1}'>${categoryList[i].catesel1}</option>
+                <option value='${categoryList[i].catesel1}'>${categoryList[i].catesel1}</option>
             `;
         }
     }
@@ -47,12 +45,10 @@ function generateCategory() {
                     }
                     
                 })
-                // console.log(relatedQuiz);
                 let filteredRelatedQuiz = relatedQuiz.filter(el => {
                     let status = true
                     quizez.forEach((ele, ind) => {
                         for (let indx = 0; indx < quizez[ind].length; indx++) {
-                        //    console.log(quizez[ind][indx].id);
                             if(quizez[ind][indx].id == el.id){
                                 status = false
                             }
@@ -62,11 +58,7 @@ function generateCategory() {
                 });
                 if(filteredRelatedQuiz.length){
                     quizez.push(filteredRelatedQuiz)
-                } 
-                        // console.log(filteredRelatedQuiz);
-                        // console.log(quizez);   
-                        
-                    
+                }  
             }
         }
             
@@ -75,8 +67,8 @@ function generateCategory() {
             cardGenerator.innerHTML +=`
                 <div class="card text-dark mb-3">
                     <div class="card-header d-flex justify-content-between">
-                        <h5>Category ${i + 1}</h5>
-                            <h5>Number Of Questions</h5>
+                        <h5 class="cardHeader">Category ${i + 1}</h5>
+                        <h5 class="cardHeader">Number Of Questions</h5>
                     </div>
                     <div class="card-body d-flex justify-content-between">
                         <h1 class="card-title cateValue" id="cateName">${quizCate.value}</h1>   
