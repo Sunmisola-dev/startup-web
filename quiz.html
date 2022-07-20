@@ -19,7 +19,9 @@
     
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
     <style>
         body{
             background: linear-gradient(to right, rgb(25, 17, 70), rgb(35,14, 84), rgb(35,14, 84), rgb(25, 17, 70))
@@ -61,68 +63,157 @@
        .next{
         background-color: darkgreen;
        }
+       .eduQuiz{
+            background-image: linear-gradient(to right, rgb(65,3,94), rgb(78,56,212));
+            text-transform: uppercase;
+            font-family: verdana;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 1px black,
+                      1px 2px 1px black,
+                      1px 3px 1px black,
+                      1px 4px 1px black,
+                      1px 5px 1px black,
+                      1px 6px 1px black,
+                      1px 7px 1px black,
+                      1px 8px 1px black,
+                      1px 9px 1px black,
+                      1px 10px 1px black,
+          1px 18px 6px rgba(16, 16, 16, 0.4),
+          1px 22px 10px rgba(16, 16, 16, 0.2),
+          1px 25px 35px rgba(16, 16, 16, 0.2),
+          1px 30px 60px rgba(16, 16, 16, 0.4);
+        }
+
+        .header{
+            background-color: rgba(60,60,60, 0.4);
+        }
+
+        /* .quizColor{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } */
+        .quiz{
+            font-size: 7em;
+            font-family: serif;
+            color: transparent;
+            text-align: center;
+            margin-top: 10px;
+            animation: effect 2s linear infinite;
+        }
+
+        @keyframes effect {
+            0% {
+                background: linear-gradient(
+                        #008000, #00FF00);
+                -webkit-background-clip: text;
+            }
+ 
+            100% {
+                background: linear-gradient(
+                        #3CE7D7, #000FFF);
+                -webkit-background-clip: text;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card mt-3 cardDiv">
-            <h5 class="card-header" id="subject"></h5>
-            <div class="card-body">
-                <h5 class="card-title d-flex justify-content-between">
-                   <span>Question: <span id="questionCount">30</span></span> 
-                   <span>Time Limit: 60 mins</span> 
-                   <span>Points: 30</span>
-                </h5>
-                <hr>
-                <h5>Instructions:</h5>
-                <p class="card-text">This Quiz contains 30 Questions</p>
-                <a href="#" class="btn btn-primary"  onclick="takeQuiz()">Continue</a>
+    <div class="container-xxl p-0">
+           <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+               <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- 
-        <div class="text-center">
-            <img src="./img/questionmark.png" alt="" style="height: 500px;">
-        </div> -->
-          
-        <div id="continue" class="text-dark">
-            <div class="mt-5">
-                <h5 class="d-flex justify-content-between"><span class="total">Total Time: <em class="total" id="timer" onload="myTimer()"></em></span><a href="#" class="btn btn-sm logOut">Log Out</a></h5>
-            </div>
-
-            <div class="card text-center questionCard" style="width: 80%;">
-                <div class="card-header">
-                   <h4>Question 1 of 30</h4> 
+        <!-- Spinner End -->
+        <div class="backgroundOverlay">
+            <div class="header navbar navbar-expand-lg navbar-light">
+                <div class="ml-5 eduQuiz pt-2 navbar-brand">
+                    <h3>#EDUQUIZ</h3>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title" id="questionSection"></h5>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <button class="btn btn-md optionBtn" type="button"><span>A:</span>&nbsp;&nbsp;&nbsp; Everest</button>
-                            </div>
-                           
-                            <div>
-                                <button class="btn btn-md optionBtn" type="button"><span>B:</span>&nbsp;&nbsp;&nbsp; K2</button>
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-6"> 
-                            <div>
-                                <button class="btn btn-md optionBtn" type="button"><span>C:</span>&nbsp;&nbsp;&nbsp; Makalu</button>
-                            </div>
-                            
-                            <div>
-                                <button class="btn btn-md optionBtn" type="button"><span>D:</span>&nbsp;&nbsp;&nbsp; Manaslu</button>
-                            </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- <div class="pt-3"><h4 class="text-light">WELCOME ON BOARD JACKY</h4></div> -->
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+                        <li class="nav-item active">
+                          <a class="nav-link text-center" href="#"> <span class="sr-only">(current)</span></a>
+                        </li>
+                      </ul>
+                    <div class="dropdown">
+                        <span class="dropdown-toggle mr-4 initials nav-link mt-2 text-light"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                            JK
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="viewProfile()">view profile</a>
+                            <a class="dropdown-item" href="signin.html">Log Out</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer text-muted d-flex justify-content-between ">
-                    <button class="btn btn-md next text-light"><i class="fas fa-angle-double-left"></i> Previous</button>
-                    <button class="btn btn-md next text-light"> Next <i class="fas fa-angle-double-right"></i></button> 
+               
+            </div> 
+            <div class="container">
+                <div class="quizColor"><h1 class="quiz">It's Quiz Time</h1></div>
+                <div class="card mt-3 cardDiv">
+                    <h5 class="card-header" id="subject"></h5>
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-between">
+                        <span>Question: <span id="questionCount">30</span></span> 
+                        <span>Time Limit: 60 mins</span> 
+                        <span>Points: 30</span>
+                        </h5>
+                        <hr>
+                        <h5>Instructions:</h5>
+                        <p class="card-text">This Quiz contains 30 Questions</p>
+                        <a href="#" class="btn btn-primary"  onclick="takeQuiz()">Continue</a>
+                    </div>
+                </div>
+
+                <div id="continue" class="text-dark">
+                    <div class="mt-5">
+                        <h5 class="d-flex justify-content-between"><span class="total">Total Time: <em class="total" id="timer" onload="myTimer()"></em></span><a href="#" class="btn btn-sm logOut">Log Out</a></h5>
+                    </div>
+    
+                    <div class="card text-center questionCard" style="width: 80%;">
+                        <div class="card-header">
+                        <h4>Question 1 of 30</h4> 
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" id="questionSection"></h5>
+    
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div>
+                                        <button class="btn btn-md optionBtn" type="button"><span>A:</span>&nbsp;&nbsp;&nbsp; Everest</button>
+                                    </div>
+                                
+                                    <div>
+                                        <button class="btn btn-md optionBtn" type="button"><span>B:</span>&nbsp;&nbsp;&nbsp; K2</button>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6"> 
+                                    <div>
+                                        <button class="btn btn-md optionBtn" type="button"><span>C:</span>&nbsp;&nbsp;&nbsp; Makalu</button>
+                                    </div>
+                                    
+                                    <div>
+                                        <button class="btn btn-md optionBtn" type="button"><span>D:</span>&nbsp;&nbsp;&nbsp; Manaslu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-between ">
+                            <button class="btn btn-md next text-light"><i class="fas fa-angle-double-left"></i> Previous</button>
+                            <button class="btn btn-md next text-light"> Next <i class="fas fa-angle-double-right"></i></button> 
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+          
         </div>
     </div>
      <!-- sweetalert -->
@@ -133,6 +224,7 @@
      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
      <!-- Latest compiled JavaScript -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="js/main.js"></script>
 
     <script>
         let card = document.querySelector(".cardDiv");
@@ -142,7 +234,9 @@
         let subject = document.querySelector("#subject");
         let questionSection = document.querySelector("#questionSection");
        
-
+        function viewProfile() {
+            window.open('userprofile.html', '_blank')
+        }
 
         function takeQuiz() {
             card.style.display = "none";

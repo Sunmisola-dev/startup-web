@@ -7,9 +7,14 @@ let initials = document.querySelector(".initials");
 
 var user = JSON.parse(localStorage.getItem('userLogin'));
 if (user) {
-    swal("Welcome!" + " " + user.inputName, "Choose from the list of quiz category to countinue!", "success");
+    swal( "Welcome" + " " + user.inputName, "Choose from the list of quiz category to countinue!", "success");
 
     initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
+}
+
+function viewProfile() {
+    window.open('userprofile.html', '_blank')
+    // initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
 }
     let categoryList = JSON.parse(localStorage.getItem("categories")) || null;
     quizCate.innerHTML = ""
@@ -29,7 +34,6 @@ function generateCategory() {
     if (quizCate.value == "") return alert("Choose from the list of categories to take quiz")
     let quizez = []
     cardGenerator.innerHTML =""
-    
     if (quizManager !== null) {
         if(quizCate.value) {
             quizManager=quizManager.filter(el => el.category == quizCate.value)
