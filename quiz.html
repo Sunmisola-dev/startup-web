@@ -36,7 +36,7 @@
            background-color: rgb(46,37,118); 
            color: whitesmoke;
            box-shadow: 2px 2px 2px 2px rgb(35,14, 84);;
-           margin: 100px auto;
+           margin: 80px auto;
         }
         .logOut{
             background-color: darkred;
@@ -178,6 +178,7 @@
                 <section>
                     <div class="container">
                         <div class="quizColor"><h1 class="quiz">It's Quiz Time</h1></div>
+                       
                         <div class="card mt-3 cardDiv">
                             <h5 class="card-header" id="subject">Subject</h5>
                             <div class="card-body">
@@ -196,12 +197,12 @@
                                 <a href="#" class="btn btn-primary"  onclick="takeQuiz()">Continue</a>
                             </div>
                         </div>
-                        <div id="continue" class="text-dark">
-                            <div class="mt-5">
+                        <div id="continue" class="text-dark qizeCard" >
+                            <!-- <div class="mt-5">
                                 <h5 class="d-flex justify-content-between"><span class="total">Total Time: <em class="total" id="timer" onload="myTimer()"></em></span><a href="#" class="btn btn-sm logOut">Log Out</a></h5>
-                            </div>
-            
-                            <div class="card text-center questionCard" style="width: 80%;">
+                            </div> -->
+                            <!-- <div class="qizeCard" onchange="generateQuestion()"></div> -->
+                            <!-- <div class="card text-center questionCard" style="width: 80%;">
                                 <div class="card-header">
                                 <h4>Question 1 of 30</h4> 
                                 </div>
@@ -211,21 +212,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div>
-                                                <button class="btn btn-md optionBtn" type="button"><span>A:</span>&nbsp;&nbsp;&nbsp; Everest</button>
+                                                <button class="btn btn-md optionBtn answer"  type="button"><span>A:</span>&nbsp;&nbsp;&nbsp; Everest</button>
                                             </div>
                                         
                                             <div>
-                                                <button class="btn btn-md optionBtn" type="button"><span>B:</span>&nbsp;&nbsp;&nbsp; K2</button>
+                                                <button class="btn btn-md optionBtn answer" type="button"><span>B:</span>&nbsp;&nbsp;&nbsp; K2</button>
                                             </div>
                                             
                                         </div>
                                         <div class="col-md-6"> 
                                             <div>
-                                                <button class="btn btn-md optionBtn" type="button"><span>C:</span>&nbsp;&nbsp;&nbsp; Makalu</button>
+                                                <button class="btn btn-md optionBtn answer" type="button"><span>C:</span>&nbsp;&nbsp;&nbsp; Makalu</button>
                                             </div>
                                             
                                             <div>
-                                                <button class="btn btn-md optionBtn" type="button"><span>D:</span>&nbsp;&nbsp;&nbsp; Manaslu</button>
+                                                <button class="btn btn-md optionBtn answer" type="button"><span>D:</span>&nbsp;&nbsp;&nbsp; Manaslu</button>
                                             </div>
                                         </div>
                                     </div>
@@ -234,7 +235,7 @@
                                     <button class="btn btn-md next text-light"><i class="fas fa-angle-double-left"></i> Previous</button>
                                     <button class="btn btn-md next text-light"> Next <i class="fas fa-angle-double-right"></i></button> 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>  
                 </section>
@@ -253,12 +254,15 @@
 
     <script>
         let card = document.querySelector(".cardDiv");
-        let quiz = document.querySelector("#continue");
-        quiz.style.display = "none";
+        let quize = document.querySelector("#continue");
+        quize.style.display = "none";
         let questionCount = document.querySelector("#questionCount");
         let subject = document.querySelector("#subject");
         let questionSection = document.querySelector("#questionSection");
+        // let answer = document.querySelector("#answer")
        let initials = document.querySelector(".initials");
+       let qizeCard = document.querySelector(".qizeCard")
+       let answer = document.querySelector(".answer")
 
        var user = JSON.parse(localStorage.getItem('userLogin'));
         if (user) {
@@ -266,22 +270,139 @@
             initials.innerHTML = user.inputName.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
         }
 
+        // function takeQuiz() {
+        //     card.style.display = "none";
+        //     quize.style.display = "";
+        // };
+
+        // var count = 60;
+        // var time = setInterval(myTimer, 1000);
+
+        // function myTimer() {
+        //     document.getElementById('timer').innerHTML = count;
+        //     count--;
+        //     if (count == -1) {
+        //         clearInterval(time);
+        //         alert("Time out!! :(");
+        //     }
+        // }
+
         function takeQuiz() {
+            let quizez = []
             card.style.display = "none";
-            quiz.style.display = "";
-        };
+            quize.style.display = "";
+            let quizManager = JSON.parse(localStorage.getItem("quizLayout")) || null
+            qizeCard.innerHTML = "";
+            if (quizManager !== null) {
+                // for (let i = 0; i < quizManager.length; i++) {
+                    // let joined_options = quizManager[i].questionOption.map(item => {
+                    //     return item.name
+                    // }).join(', ');
+                    // // let joined_options = question_options_names.join(',');
+                   
+                    // let corAnswer = quizManager[i].questionOption.filter(el=> {
+                    //     return el.name === true
+                    // }).map(item => {
+                    //     return item.name
+                    // })[0];
+                    // // let optAns = name
+                    // joined_options = Math.floor(Math.random * 3)  + 1
 
-        var count = 60;
-        var time = setInterval(myTimer, 1000);
+                    // for (let i = 0; i < quizManager.length; i++) {
+                    //     let relatedQuiz = []
+                    //     quizManager.forEach((element, ind) =>{
+                    //         if(quizManager[i].parentId == element.parentId.id){
+                    //             relatedQuiz.push(element)
+                    //         }
+                            
+                    //     })
+                    //     let filteredRelatedQuiz = relatedQuiz.filter(el => {
+                    //         let status = true
+                    //         quizez.forEach((ele, ind) => {
+                    //             for (let indx = 0; indx < quizez[ind].length; indx++) {
+                    //                 if(quizez[ind][indx].id == el.id){
+                    //                     status = false
+                    //                 }
+                    //             }
+                    //         })
+                    //         return status
+                    //     });
+                    //     if(filteredRelatedQuiz.length){
+                    //         quizez.push(filteredRelatedQuiz)
+                    //     }  
+                    // }
+                    for (let s = 0; s < quizManager.length; s++) {
+                        // let relatedQuiz = []
+                        // quizManager.forEach((element, ind) =>{
+                        //     if(quizManager[s].parent == element.id){
+                                // relatedQuiz.push(element)
+                                qizeCard.innerHTML += `
+                                    <div class="card text-center questionCard" style="width: 80%;">
+                                        <div class="card-header">
+                                            <h4>Question 1 of 30</h4> 
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title" id="questionSection"></h5>
+                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div>
+                                                            <button class="btn btn-md optionBtn answer"  type="button"><span>A:</span>&nbsp;&nbsp;&nbsp;</button>
+                                                        </div>
+                                                            
+                                                        <div>
+                                                            <button class="btn btn-md optionBtn answer" type="button"><span>B:</span>&nbsp;&nbsp;&nbsp;</button>
+                                                        </div>
+                                                                
+                                                    </div>
+                                                    <div class="col-md-6"> 
+                                                        <div>
+                                                            <button class="btn btn-md optionBtn answer" type="button"><span>C:</span>&nbsp;&nbsp;&nbsp;</button>
+                                                        </div>
+                                                        
+                                                        <div>
+                                                            <button class="btn btn-md optionBtn answer" type="button"><span>D:</span>&nbsp;&nbsp;&nbsp; </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="card-footer text-muted d-flex justify-content-between ">
+                                            <button class="btn btn-md next text-light"><i class="fas fa-angle-double-left"></i> Previous</button>
+                                            <button class="btn btn-md next text-light"> Next <i class="fas fa-angle-double-right"></i></button> 
+                                        </div>
+                                    </div>
 
-        function myTimer() {
-            document.getElementById('timer').innerHTML = count;
-            count--;
-            if (count == -1) {
-                clearInterval(time);
-                alert("Time out!! :(");
+                                `;
+                        //     }
+                            
+                        // })
+                          
+                    }
+                   
+                    
+                // }
             }
         }
+        // fetch('https://opentdb.com/api.php?amount=30&category=9&difficulty=medium&type=multiple')
+        // .then(response => response.json())
+        // .then(loadQuestions =>{
+        //     console.log(loadQuestions.results);
+        //     loadQuestions.results.map(loadQuestions =>{
+        //         const formattedQuestions = {
+        //             question : loadQuestions.questionSection
+        //         }
+        //         const anwerChoices = [...loadQuestions.incorrect_answers]
+        //         formattedQuestions.answer = Math.floor(Math.random() * 3) + 1
+        //         anwerChoices.splice(formattedQuestions.answer, -1, 0, loadQuestions.correct_answer);
+
+        //         anwerChoices.forEach(element, index => {
+        //             formattedQuestions["element" + (index+1)] = element;
+        //         });
+
+        //         return formattedQuestions
+        //     })
+        // })
+        // .catch(err => console.error(err));
     </script>
 </body>
 </html>

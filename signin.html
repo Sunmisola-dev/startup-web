@@ -96,7 +96,6 @@
         let PassW = document.getElementById('floatingPassword');
         let check = document.getElementById('exampleCheck1');
         let message = document.getElementById('message');
-
         function loginUser() {
             let data = {
                 Email: floatingInput.value,
@@ -106,11 +105,16 @@
             // console.log('data')
             let arr = {};
             loginStatus = false;
+            adminLogin = false;
             var userInfo = JSON.parse(localStorage.getItem('userInfo'));
             userInfo.some(el => {
                 if (el.email == data.Email && el.Password == data.PassW && el.exampleCheck1 == data.check) {
                     localStorage.setItem("userLogin", JSON.stringify(el))
                     loginStatus = true;
+                    arr = el;
+                }else if (el.adminEmail == data.Email && el.adminPassword == data.PassW){
+                    localStorage.setItem("userLogin", JSON.stringify(el))
+                    adminLogin = true;
                     arr = el;
                 }
             });
@@ -123,6 +127,16 @@
                 window.open("signin.html", '_blank');
                 }, 4000); 
             };
+
+            if (adminLogin) {
+                message.innerHTML = `login successful<i class="fas fa-check-circle check"></i>`;
+                window.open('dashboard.html', '_blank')
+            } else {
+                message.innerHTML = `<small class="match text-danger">Invalid credentials<i class="fas fa-exclamation warning"></i><i class="fas fa-exclamation warning"></i></small>`;
+                setTimeout(() => {
+                  window.open("signin.html", '_blank');
+                }, 4000); 
+            }
         };
     </script>
 </body>

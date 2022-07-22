@@ -119,7 +119,9 @@
                 email: document.querySelector('#floatingEmail').value, 
                 Password: document.querySelector('#floatingPassword').value,
                 inputC_Password: document.querySelector('#inputC_Password').value,
-                exampleCheck1: document.querySelector("#exampleCheck1").checked
+                exampleCheck1: document.querySelector("#exampleCheck1").checked,
+                adminEmail : "sunmisolaogungbemi@gmail.com",
+                adminPassword : "12345"
             };
             let contain =[];
             var userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -143,7 +145,7 @@
                     contain.push(info)
                 }          
                 localStorage.setItem("userInfo", JSON.stringify(contain))
-                swal( "Good job!", "Account created successfully", "success");
+                // swal( "Good job!", "Account created successfully", "success");
                 setTimeout(() => {
                     window.location.assign("signin.html");
                 }, 4000);  
